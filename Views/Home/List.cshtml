@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Web_programlama.Models.Kullanici>
+@{
+    ViewData["Title"] = "List";
+   
+}
+
+<div class="m-5">
+    <div class="bg-success text-white p-4">
+        Kullanici List
+    </div>
+    <div class="table-responsive"></div>
+
+<table class="table tabletable-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>TC</th>
+            <th>Yetki türü</th>
+            <th>Şifre</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.k_id</td>
+                <td>@item.k_tc</td>
+                <td>@item.k_yetki_turu</td>
+                <td>@item.k_sifre</td>
+                @*<td>
+                    <form asp-action="Delete" method="post">
+                        <a asp-action="Edit" asp-route-id="@item k_id" class=" btn btn-primary btn sm">Güncelle</a>
+                        <input type="hidden" name="k_id" value="@item.k_id">
+                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                    </form>
+                </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

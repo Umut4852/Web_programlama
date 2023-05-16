@@ -1,0 +1,21 @@
+﻿@model Web_programlama.Models.Kullanici
+@{
+    ViewData["Title"] = "AddKullanici";
+}
+
+<div class="bg bg-success text-white m-5"></div>
+<form asp-action="AddKullanici" method="post" class="m-5">
+    <div class="form-group">
+        <label>TC Giriniz..</label>
+        <input class="form-control" asp-for=k_tc>
+    </div>
+    <div class="form-group">
+        <label>Yetki Türünüz..</label>
+        <input class="form-control" asp-for="k_yetki_turu">
+    </div>
+    <div class="form-group">
+        <label>Şifre Giriniz</label>
+        <input class="form-control" asp-for=k_sifre>
+    </div><br />
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+</form>
