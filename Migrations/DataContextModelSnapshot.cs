@@ -21,7 +21,7 @@ namespace Web_programlama.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Admin", b =>
+            modelBuilder.Entity("Web_programlama.Models.Admin", b =>
                 {
                     b.Property<int>("a_id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Admins");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Depremzede", b =>
+            modelBuilder.Entity("Web_programlama.Models.Depremzede", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +86,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Depremzedes");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Gonullu", b =>
+            modelBuilder.Entity("Web_programlama.Models.Gonullu", b =>
                 {
                     b.Property<int>("g_id")
                         .ValueGeneratedOnAdd()
@@ -129,7 +129,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Gonullus");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Haberler", b =>
+            modelBuilder.Entity("Web_programlama.Models.Haberler", b =>
                 {
                     b.Property<int>("h_id")
                         .ValueGeneratedOnAdd()
@@ -154,7 +154,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Haberlers");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Ihtiyaclar", b =>
+            modelBuilder.Entity("Web_programlama.Models.Ihtiyaclar", b =>
                 {
                     b.Property<int>("i_id")
                         .ValueGeneratedOnAdd()
@@ -181,7 +181,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("ihtiyaclars");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Kullanici", b =>
+            modelBuilder.Entity("Web_programlama.Models.Kullanici", b =>
                 {
                     b.Property<int>("k_id")
                         .ValueGeneratedOnAdd()
@@ -204,7 +204,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Kullanicis");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.ToplanmaAlani", b =>
+            modelBuilder.Entity("Web_programlama.Models.ToplanmaAlani", b =>
                 {
                     b.Property<int>("a_id")
                         .ValueGeneratedOnAdd()
@@ -231,7 +231,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Toplanma_Alanis");
                 });
 
-            modelBuilder.Entity("deprem_.net_core_mvc_.Models.Yetkili", b =>
+            modelBuilder.Entity("Web_programlama.Models.Yetkili", b =>
                 {
                     b.Property<int>("y_id")
                         .ValueGeneratedOnAdd()
