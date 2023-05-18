@@ -33,6 +33,8 @@ namespace Web_programlama.Controllers
                 context.Kullanicis.Add(model);
                 context.SaveChanges();
             }
+
+
             return View("Thanks", model);
         }
 
