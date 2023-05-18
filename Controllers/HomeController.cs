@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Web_programlama.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Web_programlama.Controllers
 {
     public class HomeController : Controller
@@ -28,13 +29,8 @@ namespace Web_programlama.Controllers
         [HttpPost]
         public IActionResult AddKullanici(Kullanici model)
         {
-            if (ModelState.IsValid)
-            {
-                context.Kullanicis.Add(model);
-                context.SaveChanges();
-            }
-
-
+            context.Kullanicis.Add(model);
+            context.SaveChanges();
             return View("Thanks", model);
         }
 

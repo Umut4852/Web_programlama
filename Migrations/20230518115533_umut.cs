@@ -102,9 +102,9 @@ namespace Web_programlama.Migrations
                 {
                     k_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    k_tc = table.Column<int>(type: "int", nullable: false),
-                    k_yetki_turu = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    k_sifre = table.Column<int>(type: "int", nullable: false)
+                    k_tc = table.Column<int>(type: "int", nullable: true),
+                    k_yetki_turu = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    k_sifre = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
