@@ -29,8 +29,12 @@ namespace Web_programlama.Controllers
         [HttpPost]
         public IActionResult AddKullanici(Kullanici model)
         {
-            context.Kullanicis.Add(model);
-            context.SaveChanges();
+            if(ModelState.IsValid)
+            {
+                context.Kullanicis.Add(model);
+                int v = context.SaveChanges();
+            }
+            
             return View("Thanks", model);
         }
 
