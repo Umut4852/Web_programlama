@@ -10,5 +10,6 @@ namespace Web_programlama.Models
         public int i_miktari { get; set; }
         public int bagis_miktari { get; set; }
         public string istek_adresi { get; set; }
+        public string ozel_istek { get; set; }
     }
 }
