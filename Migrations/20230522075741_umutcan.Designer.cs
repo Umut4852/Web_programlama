@@ -12,8 +12,8 @@ using Web_programlama.Models;
 namespace Web_programlama.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230519072115_OzeLIstekEklendi")]
-    partial class OzeLIstekEklendi
+    [Migration("20230522075741_umutcan")]
+    partial class umutcan
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

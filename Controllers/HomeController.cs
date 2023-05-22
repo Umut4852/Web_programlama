@@ -20,6 +20,7 @@ namespace Web_programlama.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult AddKullanici()
         {
@@ -29,12 +30,9 @@ namespace Web_programlama.Controllers
         [HttpPost]
         public IActionResult AddKullanici(Kullanici model)
         {
-            if(ModelState.IsValid)
-            {
+
                 context.Kullanicis.Add(model);
-                int v = context.SaveChanges();
-            }
-            
+                context.SaveChanges();  
             return View("Thanks", model);
         }
 
@@ -51,11 +49,53 @@ namespace Web_programlama.Controllers
             return context.Kullanicis.Where(p => p.k_id == k_id).FirstOrDefault();
         }
 
+        
+        [HttpGet]
+        public IActionResult Guncelle(int k_id)
+        {
+            return View(GetById(k_id));
+        }
+
+        [HttpPost]
+        public IActionResult Guncelle(Kullanici entity, Kullanici gizli = null)
+        {
+            if (gizli == null)
+            {
+                gizli = context.Kullanicis.Where(p => p.k_id == entity.k_id).FirstOrDefault();
+            }
+            else
+            {
+                context.Kullanicis.Attach(gizli);
+            }
+            if (gizli != null)
+            {
+                gizli.k_tc = entity.k_tc;
+                gizli.k_yetki_turu = entity.k_yetki_turu;
+                gizli.k_sifre = entity.k_sifre;
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public void DeleteKullanici(int k_id)
+        {
+            var entity = context.Kullanicis.Where(p => p.k_id == k_id).FirstOrDefault();
+            context.Kullanicis.Remove(entity);
+            context.SaveChanges();
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(int k_id)
+        {
+            DeleteKullanici(k_id);
+            return RedirectToAction("Index");
+        }
+        
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
     }
 }

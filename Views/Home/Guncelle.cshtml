@@ -1,0 +1,36 @@
+﻿@model Web_programlama.Models.Kullanici
+@{
+    ViewData["Title"] = "Guncelle";
+}
+
+<h1>Güncelle İşlemleri</h1>
+
+<div class="m-4">
+<div class="bg-success text-white p-4">
+    Kullanıcı Güncelleme
+</div>
+<form asp-action="Guncelle" method="post">
+
+    <input type="hidden" name="gizli.k_id" value="@Model.k_id" />
+    <input type="hidden" name="gizli.Adı" value="@Model.k_tc" />
+    <input type="hidden" name="gizli.Adet" value="@Model.k_yetki_turu" />
+    <input type="hidden" name="gizli.Adres" value="@Model.k_sifre" />
+
+    <div class="form-group">
+        <label asp-for="k_tc"></label>
+        <input asp-for="k_tc" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="k_yetki_turu"></label>
+        <input asp-for="k_yetki_turu" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="k_sifre"></label>
+        <input asp-for="k_sifre" class="form-control" />
+    </div>
+
+    <button type="submit" value="Submit" class="btn btn-primary">Güncelle </button>
+</form>
+</div>

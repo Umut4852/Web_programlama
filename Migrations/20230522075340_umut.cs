@@ -89,7 +89,8 @@ namespace Web_programlama.Migrations
                     i_adi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     i_miktari = table.Column<int>(type: "int", nullable: false),
                     bagis_miktari = table.Column<int>(type: "int", nullable: false),
-                    istek_adresi = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    istek_adresi = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ozel_istek = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

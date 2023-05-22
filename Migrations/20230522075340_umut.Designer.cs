@@ -12,7 +12,7 @@ using Web_programlama.Models;
 namespace Web_programlama.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230518115533_umut")]
+    [Migration("20230522075340_umut")]
     partial class umut
     {
         /// <inheritdoc />
@@ -177,6 +177,10 @@ namespace Web_programlama.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("istek_adresi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ozel_istek")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
