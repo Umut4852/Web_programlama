@@ -31,8 +31,8 @@ namespace Web_programlama.Controllers
         public IActionResult AddKullanici(Kullanici model)
         {
 
-                context.Kullanicis.Add(model);
-                context.SaveChanges();  
+            context.Kullanicis.Add(model);
+            context.SaveChanges();
             return View("Thanks", model);
         }
 
@@ -44,16 +44,15 @@ namespace Web_programlama.Controllers
         {
             return View(context.Kullanicis.OrderByDescending(p => p.k_id));
         }
-        public Kullanici GetById(int k_id)
+        public Kullanici GetById(int id)
         {
-            return context.Kullanicis.Where(p => p.k_id == k_id).FirstOrDefault();
+            return context.Kullanicis.Where(p => p.k_id == id).FirstOrDefault();
         }
 
-        
         [HttpGet]
-        public IActionResult Guncelle(int k_id)
+        public IActionResult Guncelle(int id)
         {
-            return View(GetById(k_id));
+            return View(GetById(id));
         }
 
         [HttpPost]
@@ -72,6 +71,7 @@ namespace Web_programlama.Controllers
                 gizli.k_tc = entity.k_tc;
                 gizli.k_yetki_turu = entity.k_yetki_turu;
                 gizli.k_sifre = entity.k_sifre;
+                context.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -90,7 +90,7 @@ namespace Web_programlama.Controllers
             DeleteKullanici(k_id);
             return RedirectToAction("Index");
         }
-        
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

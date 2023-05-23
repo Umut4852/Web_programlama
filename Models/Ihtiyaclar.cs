@@ -11,6 +11,6 @@ namespace Web_programlama.Models
         public int bagis_miktari { get; set; }
         public string istek_adresi { get; set; }
         public string ozel_istek { get; set; }
-        public bool var { get; set; } 
+        public bool IsNeed { get; set; } 
     }
 }

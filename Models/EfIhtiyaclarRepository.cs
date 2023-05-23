@@ -2,37 +2,41 @@
 
 namespace Web_programlama.Models
 {
-    public class EfIhtiyaclarRepostory : IRepostory
+    public class EfIhtiyaclarRepository : IIhtiyaclarRepository
     {
         private DataContext context;
-
-        public EfIhtiyaclarRepostory(DataContext _context)
+        public EfIhtiyaclarRepository(DataContext _context)
         {
             context = _context;
         }
-        public IQueryable<Ihtiyaclar> ihtiyaclars => context.ihtiyaclars;
-        public void CreateIhtitaclar(Ihtiyaclar newIhtiyaclar)
+
+        public IQueryable<Ihtiyaclar> Ihtiyaclars => context.ihtiyaclars;
+        public void CreateIhtiyaclar(Ihtiyaclar newIhtiyaclar)
         {
             throw new NotImplementedException();
-        }
-        public void DeleteIhtiyaclar(int Ihtiyaclarid)
-        {
-            throw new NotImplementedException();
-        }
-        public Ihtiyaclar GetById(int i_id)
-        {
-            return context.ihtiyaclars.Where(i => i.i_id == i_id).FirstOrDefault();
         }
 
-        public IEnumerable<Ihtiyaclar> GetIhtiyaclarByActive(bool var)
+        public void DeleteIhtiyaclar(int Ihtiyaclari_id)
         {
-            return context.ihtiyaclars.Where(p => p.var == var).ToList();
+            throw new NotImplementedException();
+        }
+
+        public Ihtiyaclar GetById(int id)
+        {
+            return context.ihtiyaclars.Where(i => i.i_id == id).FirstOrDefault();
+        }
+
+        public IEnumerable<Ihtiyaclar> GetIhtiyaclarByIsNeed(bool isneed)
+        {
+            return context.ihtiyaclars.Where(p => p.IsNeed == isneed).ToList(); //ihtiyaç olanları çektiğim sorgu
         }
 
         public IEnumerable<Ihtiyaclar> GetIhtiyaclar()
         {
             throw new NotImplementedException();
         }
+
+
 
         public void UpdateIhtiyaclar(Ihtiyaclar updateIhtiyaclar)
         {
@@ -43,6 +47,7 @@ namespace Web_programlama.Models
                 entity.i_miktari = updateIhtiyaclar.i_miktari;
                 entity.istek_adresi = updateIhtiyaclar.istek_adresi;
                 entity.ozel_istek = updateIhtiyaclar.ozel_istek;
+                entity.IsNeed=updateIhtiyaclar.IsNeed;
 
                 context.SaveChanges();
             }

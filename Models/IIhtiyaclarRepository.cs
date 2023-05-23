@@ -1,12 +1,12 @@
 ﻿namespace Web_programlama.Models
 {
-    public interface IIhtiyaclarRepostory
+    public interface IIhtiyaclarRepository
     {
         Ihtiyaclar GetById(int id);
         IEnumerable<Ihtiyaclar> GetIhtiyaclar();
-        IEnumerable<Ihtiyaclar> GetIhtiyaclarByActive(bool isactive);
+        IEnumerable<Ihtiyaclar> GetIhtiyaclarByIsNeed(bool isneed);
         void CreateIhtiyaclar(Ihtiyaclar newIhtiyaclar);
         void UpdateIhtiyaclar(Ihtiyaclar updateIhtiyaclar);
-        void DeleteIhtiyaclar(int i_id);
+        void DeleteIhtiyaclar(int Ihtiyaclari_id);
     }
 }

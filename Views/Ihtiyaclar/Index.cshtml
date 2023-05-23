@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Web_programlama.Models.Ihtiyaclar>
-
 @{
-    ViewData["Title"] = "Ihtiyaclar_listesi";
+    ViewData["Title"] = "Index";
 }
+
+<h1>Index</h1>
 
 <div class="m-5">
     <div class="bg-success text-white p-4">
@@ -18,6 +19,7 @@
                 <th>Adet</th>
                 <th>Adresi</th>
                 <th>Özel</th>
+                <th>IsNeed</th>
             </tr>
         </thead>
 
@@ -31,9 +33,10 @@
                     <td>@item.i_miktari</td>
                     <td>@item.istek_adresi</td>
                     <td>@item.ozel_istek</td>
+                    <td>@item.IsNeed</td>
                     <td>
                         <form asp-action="Delete" method="post">
-                            <a asp-action="Edit" asp-route-id="@item i_id" class=" btn btn-primary btn sm">Güncelle</a>
+                            <a asp-controller="Ihtiyaclar" asp-action="Guncele" asp-route-id="@item i_id" class=" btn btn-primary btn sm">Güncelle</a>
                             <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                         </form>
                     </td>

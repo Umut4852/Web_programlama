@@ -6,16 +6,16 @@ namespace Web_programlama.Controllers
 {
     public class IhtiyaclarController : Controller
     {
-        private IRepostory ihtiyaclar;
-        private IIhtiyaclarRepostory ihtiyaclar1;
-        public IhtiyaclarController(IIhtiyaclarRepostory _ihtiyaclar)
+        private IRepositoriy ihtiyaclar;
+        private IIhtiyaclarRepository ihtiyaclar1;
+        public IhtiyaclarController(IIhtiyaclarRepository _ihtiyaclar)
         {
             ihtiyaclar1= _ihtiyaclar;
         }
-        public IActionResult AddIhtiyaclar()
+        public IActionResult Index() //first page
         {
-            var ihtiyaclars = ihtiyaclar1.GetIhtiyaclarByActive(true);
-            ViewBag.IhtiyaclarCount = ihtiyaclars.Count();
+            var ihtiyaclars = ihtiyaclar1.GetIhtiyaclarByIsNeed(true);
+            ViewBag.IhtiyaclarCount = ihtiyaclars.Count(); //viewbag sayısını for learn 
             return View(ihtiyaclars);
         }
         [HttpGet]
@@ -25,15 +25,10 @@ namespace Web_programlama.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddIhtiyaclar(Ihtiyaclar Entity)
+        public IActionResult Guncelle(Ihtiyaclar Entity)
         {
             ihtiyaclar1.UpdateIhtiyaclar( Entity);
-           return RedirectToAction(nameof(Ihtiyaclar_listesi));
-        }
-
-        private object Ihtiyaclar_listesi()
-        {
-            throw new NotImplementedException();
+           return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
