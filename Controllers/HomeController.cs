@@ -69,6 +69,7 @@ namespace Web_programlama.Controllers
             if (gizli != null)
             {
                 gizli.k_tc = entity.k_tc;
+                gizli.k_adi = entity.k_adi;
                 gizli.k_yetki_turu = entity.k_yetki_turu;
                 gizli.k_sifre = entity.k_sifre;
                 context.SaveChanges();

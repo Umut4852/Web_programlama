@@ -3,7 +3,7 @@
     ViewData["Title"] = "Guncelle";
 }
 
-<h1>Güncelle İşlemleri</h1>
+<h1>Güncelleme İşlemleri</h1>
 
 <div class="m-4">
 <div class="bg-success text-white p-4">
@@ -13,6 +13,7 @@
 
     <input type="hidden" name="gizli.ID" value="@Model.k_id" />
     <input type="hidden" name="gizli.TC " value="@Model.k_tc" />
+    <input type="hidden" name="gizli.Isim " value="@Model.k_adi" />
     <input type="hidden" name="gizli.YETKİ" value="@Model.k_yetki_turu" />
     <input type="hidden" name="gizli.SİFRE" value="@Model.k_sifre" />
 
@@ -21,6 +22,12 @@
             <br />
         <input asp-for="k_tc" class="form-control" />
     </div> <br />
+
+        <div class="form-group">
+            <label asp-for="k_adi"></label>
+            <br />
+            <input asp-for="k_adi" class="form-control" />
+        </div> <br />
 
     <div class="form-group">
         <label asp-for="k_yetki_turu"></label>
