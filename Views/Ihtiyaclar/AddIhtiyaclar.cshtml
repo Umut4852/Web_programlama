@@ -1,0 +1,35 @@
+﻿@model Web_programlama.Models.Ihtiyaclar
+@{
+    ViewData["Title"] = "AddIhtiyaclar";
+}
+
+<h1>İhtiyaçları Belirt</h1>
+
+
+<div class="bg-success text-white m-5"></div>
+
+<form asp-action="AddIhtiyaclar" method="post" class="m-5">
+
+    <div class="form-group">
+        <label>Adını Giriniz..</label>
+        <input class="form-control" asp-for=i_adi>
+    </div>
+
+    <div class="form-group">
+        <label>Kaç adet ihtiyaç var ?</label>
+        <input class="form-control" asp-for=i_miktari>
+    </div>
+
+    <div class="form-group">
+        <label>Adres Giriniz..</label>
+        <input class="form-control" asp-for=istek_adresi>
+    </div>
+
+    <div class="form-group">
+        <label>Ozel istek belirtiniz</label>
+        <input class="form-control" asp-for=ozel_istek>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Liste Yap</button>
+
+    </form>

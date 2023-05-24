@@ -6,15 +6,18 @@
     <h1>Geçmiş Olsun</h1>
 
 </div>
-
 <a asp-action="AddKullanici" class="btn btn-primary">Kullanıcı Oluştur</a>
 <a asp-action="List" class="btn btn-primary">Kullanıcıları Listele</a>
 <br/>
 <form asp-controller="Home" asp-action="OpenGonullu" method="post">
     <input type="submit" value="Gönüllü" />
 </form>
+
 <form asp-controller="Home" asp-action="OpenAdmin" method="post">
     <input type="submit" value="Admin" />
 </form>
 
+<form asp-controller="Home" asp-action="OpenIhtiyaclar" method="post">
+    <input type="submit" value="Ihtiyaclar" />
+</form>
 

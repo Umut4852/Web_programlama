@@ -1,48 +1,8 @@
-﻿@model IEnumerable<Web_programlama.Models.Ihtiyaclar>
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
-<div class="m-5">
-    <div class="bg-success text-white p-4">
-        İHTİYAÇLAR
-    </div>
-    <div class="table-responsive"></div>
-
-    <table class="table tabletable-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Adı</th>
-                <th>Adet</th>
-                <th>Adresi</th>
-                <th>Özel</th>
-                <th>IsNeed</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var item in Model)
-            {
-
-                <tr>
-                    <td>@item.i_id</td>
-                    <td>@item.i_adi</td>
-                    <td>@item.i_miktari</td>
-                    <td>@item.istek_adresi</td>
-                    <td>@item.ozel_istek</td>
-                    <td>@item.IsNeed</td>
-                    <td>
-                        <form asp-action="Delete" method="post">
-                            <a asp-controller="Ihtiyaclar" asp-action="Guncele" asp-route-id="@item i_id" class=" btn btn-primary btn sm">Güncelle</a>
-                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
+<a asp-action="Listi" class="btn btn-primary">İhtiyaclar Listesi</a>
+<a asp-action="AddIhtiyaclar" class="btn btn-primary">İhtiyaç Belirt</a>

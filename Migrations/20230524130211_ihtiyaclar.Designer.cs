@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_programlama.Models;
 
@@ -11,9 +12,11 @@ using Web_programlama.Models;
 namespace Web_programlama.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230524130211_ihtiyaclar")]
+    partial class ihtiyaclar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,16 +160,22 @@ namespace Web_programlama.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("i_id"));
 
+                    b.Property<int>("bagis_miktari")
+                        .HasColumnType("int");
+
                     b.Property<string>("i_adi")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("i_miktari")
                         .HasColumnType("int");
 
                     b.Property<string>("istek_adresi")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ozel_istek")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("i_id");

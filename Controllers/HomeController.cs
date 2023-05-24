@@ -107,6 +107,10 @@ namespace Web_programlama.Controllers
             return RedirectToAction("Index","Admin");
         }
 
+        public IActionResult OpenIhtiyaclar()
+        {
+            return RedirectToAction("Index", "Ihtiyaclar");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -6,28 +6,43 @@
 <h1>Geçmiş olsun</h1>
 <h2>ihtiyacınız olan ürünleri giriniz</h2>
 
-<form asp-action="AddIhtiyaclar" method="post" class="m-5">
-    <div class="form-group">
-        <label>Adı</label>
-        <input class="form-control" asp-for=i_adi>
+<div class="m-4">
+    <div class="bg-success text-white p-4">
+        İstekleri Güncelle
     </div>
+    <form asp-action="Guncelle" method="post">
 
-    <div class="form-group">
-        <label>Ne kadar ihtiyacınız var (1 gün için:Kişi başı 1 adet)</label>
-        <input class="form-control" asp-for=i_miktari>
-    </div>
+        <input type="hidden" name="gizli.i_id" value="@Model.i_id" />
+        <input type="hidden" name="gizli.i_adi " value="@Model.i_adi" />
+        <input type="hidden" name="gizli.i_miktari " value="@Model.i_miktari" />
+        <input type="hidden" name="gizli.istek_adresi" value="@Model.istek_adresi" />
+        <input type="hidden" name="gizli.ozel_istek" value="@Model.ozel_istek" />
 
-    <div class="form-group">
-        <label>Gerekli olan konumu</label>
-        <input class="form-control" asp-for=istek_adresi>
-    </div>
+        <div class="form-group">
+            <label asp-for="i_adi"></label>
+            <br />
+            <input asp-for="i_adi" class="form-control" />
+        </div> <br />
 
-    <div class="form-group">
-        <label>Özel bir isteğiniz</label>
-        <input class="form-control" asp-for=ozel_istek>
-    </div>
+        <div class="form-group">
+            <label asp-for="i_miktari"></label>
+            <br />
+            <input asp-for="i_miktari" class="form-control" />
+        </div> <br />
 
-    <button type="submit" value="Submit" class="btn btn-primary">Güncelle</button>
-</form>
+        <div class="form-group">
+            <label asp-for="istek_adresi"></label>
+            <br />
+            <input asp-for="istek_adresi" class="form-control" />
+        </div><br />
+
+        <div class="form-group">
+            <label asp-for="ozel_istek"></label>
+            <br />
+            <input asp-for="ozel_istek" class="form-control" />
+        </div><br />
+        <button type="submit" value="Submit" class="btn btn-primary">Güncelle </button>
+    </form>
+</div>
 
 

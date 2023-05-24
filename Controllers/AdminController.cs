@@ -38,5 +38,53 @@ namespace Web_programlama.Controllers
 
             return View(context.Admins.OrderByDescending(p => p.a_id));
         }
+        public Admin GetById(int id)
+        {
+
+            return context.Admins.Where(p => p.a_id == id).FirstOrDefault();
+        }
+        [HttpGet]
+        public IActionResult Guncellea(int id)
+        {
+            return View(GetById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Guncellea(Admin entity, Admin gizli = null)
+        {
+            if (gizli == null)
+            {
+                gizli = context.Admins.Where(p => p.a_id == entity.a_id).FirstOrDefault();
+            }
+            else
+            {
+                context.Admins.Attach(gizli);
+            }
+            if (gizli != null)
+            {
+                gizli.a_id = entity.a_id;
+                gizli.a_tc = entity.a_tc;
+                gizli.a_sifre = entity.a_sifre;
+                gizli.a_isim = entity.a_isim;
+                gizli.a_soyisim = entity.a_soyisim;
+                context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        public void DeleteAdmin(int a_id)
+        {
+            var entity = context.Admins.Where(p => p.a_id == a_id).FirstOrDefault();
+            context.Admins.Remove(entity);
+            context.SaveChanges();
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(int g_id)
+        {
+            DeleteAdmin(g_id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

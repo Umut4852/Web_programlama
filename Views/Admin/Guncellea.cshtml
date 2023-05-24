@@ -1,0 +1,45 @@
+﻿@model Web_programlama.Models.Admin
+@{
+    ViewData["Title"] = "Guncellea";
+}
+
+<div class="m-4">
+    <div class="bg-success text-white p-4">
+        Admin Güncelleme
+    </div>
+    <form asp-action="Guncellea" method="post">
+
+        <input type="hidden" name="gizli.ID" value="@Model.a_id" />
+        <input type="hidden" name="gizli.TC " value="@Model.a_tc" />
+        <input type="hidden" name="gizli.Şifre" value="@Model.a_sifre" />
+        <input type="hidden" name="gizli.Isim " value="@Model.a_isim" />
+        <input type="hidden" name="gizli.Soyisim" value="@Model.a_soyisim" />
+
+
+        <div class="form-group">
+            <label asp-for="a_tc"></label>
+            <br />
+            <input asp-for="a_tc" class="form-control" />
+        </div> <br />
+
+        <div class="form-group">
+            <label asp-for="a_sifre"></label>
+            <br />
+            <input asp-for="a_sifre" class="form-control" />
+        </div><br />
+
+        <div class="form-group">
+            <label asp-for="a_isim"></label>
+            <br />
+            <input asp-for="a_isim" class="form-control" />
+        </div> <br />
+
+        <div class="form-group">
+            <label asp-for="a_soyisim"></label>
+            <br />
+            <input asp-for="a_soyisim" class="form-control" />
+        </div><br />
+
+        <button type="submit" value="Submit" class="btn btn-primary">Güncelle </button>
+    </form>
+</div>
