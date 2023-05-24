@@ -1,0 +1,72 @@
+﻿@model Web_programlama.Models.Gonullu
+@{
+    ViewData["Title"] = "Guncelleg";
+}
+
+<h1>Başvuru Güncelleme İşlemleri</h1>
+
+<div class="m-4">
+    <div class="bg-success text-white p-4">
+        Başvuru Güncelleme
+    </div>
+    <form asp-action="Guncelleg" method="post">
+
+        <input type="hidden" name="gizli.ID" value="@Model.g_id" />
+        <input type="hidden" name="gizli.TC " value="@Model.g_tc" />
+        <input type="hidden" name="gizli.Isim " value="@Model.isim" />
+        <input type="hidden" name="gizli.Soyisim" value="@Model.soyisim" />
+        <input type="hidden" name="gizli.Mesleği" value="@Model.meslegi" />
+        <input type="hidden" name="gizli.Yaşı" value="@Model.yasi" />
+        <input type="hidden" name="gizli.Mail" value="@Model.mail" />
+        <input type="hidden" name="gizli.Telefon" value="@Model.telefon" />
+        <input type="hidden" name="gizli.Şifre" value="@Model.sifre" />
+
+
+        <div class="form-group">
+            <label asp-for="g_tc"></label>
+            <br />
+            <input asp-for="g_tc" class="form-control" />
+        </div> <br />
+
+        <div class="form-group">
+            <label asp-for="isim"></label>
+            <br />
+            <input asp-for="isim" class="form-control" />
+        </div> <br />
+
+        <div class="form-group">
+            <label asp-for="soyisim"></label>
+            <br />
+            <input asp-for="soyisim" class="form-control" />
+        </div><br />
+
+        <div class="form-group">
+            <label asp-for="meslegi"></label>
+            <br />
+            <input asp-for="meslegi" class="form-control" />
+        </div><br />
+
+        <div class="form-group">
+            <label asp-for="yasi"></label>
+            <br />
+            <input asp-for="yasi" class="form-control" />
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="mail"></label>
+            <br />
+            <input asp-for="mail" class="form-control" />
+        </div><br />
+        <div class="form-group">
+            <label asp-for="telefon"></label>
+            <br />
+            <input asp-for="telefon" class="form-control" />
+        </div><br />
+        <div class="form-group">
+            <label asp-for="sifre"></label>
+            <br />
+            <input asp-for="sifre" class="form-control" />
+        </div><br />
+        <button type="submit" value="Submit" class="btn btn-primary">Güncelle </button>
+    </form>
+</div>

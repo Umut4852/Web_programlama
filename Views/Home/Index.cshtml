@@ -9,6 +9,12 @@
 
 <a asp-action="AddKullanici" class="btn btn-primary">Kullanıcı Oluştur</a>
 <a asp-action="List" class="btn btn-primary">Kullanıcıları Listele</a>
-<a asp-controller="Ihtiyaclar" asp-action="Index" class="btn btn-primary btn sm">İhtiyaçları belirt</a>
+<br/>
+<form asp-controller="Home" asp-action="OpenGonullu" method="post">
+    <input type="submit" value="Gönüllü" />
+</form>
+<form asp-controller="Home" asp-action="OpenAdmin" method="post">
+    <input type="submit" value="Admin" />
+</form>
 
 

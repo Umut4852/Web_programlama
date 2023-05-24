@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Web_programlama.Models.Gonullu>
+@{
+    ViewData["Title"] = "Listg";
+}
+
+<div class="m-5">
+    <div class="bg-success text-white p-4">
+        Gönüllü Listesi
+    </div>
+    <div class="table-responsive"></div>
+
+    <table class="table tabletable-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TC</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Mesleği</th>
+                <th>Yaşı</th>
+                <th>Mail</th>
+                <th>Telefon</th>
+                <th>Şifre</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.g_id</td>
+                    <td>@item.g_tc</td>
+                    <td>@item.isim</td>
+                    <td>@item.soyisim</td>
+                    <td>@item.meslegi</td>
+                    <td>@item.yasi</td>
+                    <td>@item.mail</td>
+                    <td>@item.telefon</td>
+                    <td>@item.sifre</td>
+
+                    <td>
+                        <form asp-action="Delete" method="post">
+                            <a asp-controller="Gonullu" asp-action="Guncelleg" asp-route-id="@item.g_id" class=" btn btn-primary btn sm">Güncelle</a>
+                            <input type="hidden" name="g_id" value="@item.g_id">
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

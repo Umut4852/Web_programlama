@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Admin Sayfası</h1>
+
+<a asp-action="AdminOlustur" class="btn btn-primary">Admin oluştur</a>
+<a asp-action="Lista" class="btn btn-success">Adminleri görüntüle</a>
+
+<form asp-controller="Admin" asp-action="RaporGonullu" method="post">
+    <input type="submit" class="btn btn-primary" value="Başvurular" />
+</form>

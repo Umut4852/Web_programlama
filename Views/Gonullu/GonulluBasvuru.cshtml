@@ -1,0 +1,49 @@
+﻿@model Web_programlama.Models.Gonullu
+
+@{
+    ViewData["Title"] = "GonulluBasvuru";
+}
+
+<h1>Gönüllü başvuru paneline hoşgeldiniz</h1>
+
+<div class="bg-success text-white m-5"></div>
+
+<form asp-action="GonulluBasvuru" method="post" class="m-5">
+    <div class="form-group">
+        <label>TC Giriniz..</label>
+        <input class="form-control" asp-for=g_tc>
+    </div>
+
+    <div class="form-group">
+        <label>İsim Giriniz</label>
+        <input class="form-control" asp-for="isim">
+    </div>
+
+    <div class="form-group">
+        <label>Soyisim Giriniz</label>
+        <input class="form-control" asp-for="soyisim">
+    </div>
+
+    <div class="form-group">
+        <label>Mesleğinizi Giriniz</label>
+        <input class="form-control" asp-for=meslegi>
+    </div><br />
+
+    <div class="form-group">
+        <label>Yaşınızı Giriniz..</label>
+        <input class="form-control" asp-for=yasi>
+    </div>
+    <div class="form-group">
+        <label>Mail Giriniz..</label>
+        <input class="form-control" asp-for=mail>
+    </div>
+    <div class="form-group">
+        <label>Telefon Giriniz..</label>
+        <input class="form-control" asp-for=telefon>
+    </div>
+    <div class="form-group">
+        <label>Şifre Giriniz</label>
+        <input class="form-control" asp-for="sifre">
+    </div>
+    <button type="submit" class="btn btn-primary">Liste Yap</button>
+</form>   

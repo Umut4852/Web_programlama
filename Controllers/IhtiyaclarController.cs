@@ -12,11 +12,9 @@ namespace Web_programlama.Controllers
         {
             ihtiyaclar1= _ihtiyaclar;
         }
-        public IActionResult Index() //first page
-        {
-            var ihtiyaclars = ihtiyaclar1.GetIhtiyaclarByIsNeed(true);
-            ViewBag.IhtiyaclarCount = ihtiyaclars.Count(); //viewbag sayısını for learn 
-            return View(ihtiyaclars);
+        public IActionResult Index() 
+        { 
+            return View();
         }
         [HttpGet]
         public IActionResult Guncelle(int i_id)
@@ -36,5 +34,10 @@ namespace Web_programlama.Controllers
         {
             return View();
         }
+        public IActionResult View()
+        {
+            return View();
+        }
+
     }
 }

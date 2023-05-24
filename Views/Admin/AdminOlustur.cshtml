@@ -1,0 +1,33 @@
+﻿@model Web_programlama.Models.Admin
+@{
+    ViewData["Title"] = "AdminOlustur";
+}
+
+<h1>Admin kayıt</h1>
+
+<div class="bg-success text-white m-5"></div>
+
+<form asp-action="AdminOlustur" method="post" class="m-5">
+    <div class="form-group">
+        <label>TC Giriniz..</label>
+        <input class="form-control" asp-for=a_tc>
+    </div>
+
+    <div class="form-group">
+        <label>Şifre Giriniz..</label>
+        <input class="form-control" asp-for=a_sifre>
+    </div>
+
+    <div class="form-group">
+        <label>İsim Giriniz..</label>
+        <input class="form-control" asp-for=a_isim>
+    </div>
+
+    <div class="form-group">
+        <label>Soyisim Giriniz..</label>
+        <input class="form-control" asp-for=a_soyisim>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Admin Oluştur</button>
+
+</form>

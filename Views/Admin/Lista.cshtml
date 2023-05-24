@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Web_programlama.Models.Admin >
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Admin Listesi</h1>
+
+<div class="m-5">
+    <div class="bg-success text-white p-4">
+        Admin Listesi
+    </div>
+    <div class="table-responsive"></div>
+
+    <table class="table tabletable-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TC</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Şifre</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.a_id</td>
+                    <td>@item.a_tc</td>
+                    <td>@item.a_isim</td>
+                    <td>@item.a_soyisim</td>
+                    <td>@item.a_sifre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

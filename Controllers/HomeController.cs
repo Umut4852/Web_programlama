@@ -92,6 +92,20 @@ namespace Web_programlama.Controllers
             return RedirectToAction("Index");
         }
 
+        //public IActionResult OpenView()
+        //{
+        //    return RedirectToAction(nameof(View));
+        //}
+
+        public IActionResult OpenGonullu()
+        {
+            return RedirectToAction("Index", "Gonullu");
+        }
+
+        public IActionResult OpenAdmin()
+        {
+            return RedirectToAction("Index","Admin");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
