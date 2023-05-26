@@ -2,7 +2,7 @@
 
 namespace Web_programlama.Models
 {
-    public class Ihtiyaclar
+    public class ihtiyac
     {
         [Key]
         public int i_id { get; set; }

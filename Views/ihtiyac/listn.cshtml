@@ -1,29 +1,29 @@
-﻿@model IEnumerable<Web_programlama.Models.Ihtiyaclar>
+﻿@model IEnumerable<Web_programlama.Models.ihtiyac >
 @{
-    ViewData["Title"] = "Listi";
+    ViewData["Title"] = "listn";
 }
+
 
 <div class="m-5">
     <div class="bg-success text-white p-4">
-        İHTİYAÇLAR
+        İhtiyaçlar Listesi
     </div>
     <div class="table-responsive"></div>
 
     <table class="table tabletable-bordered table-striped">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Adı</th>
                 <th>Adet</th>
-                <th>Adresi</th>
-                <th>Özel</th>
+                <th>Adres</th>
+                <th>Özel istek</th>
             </tr>
         </thead>
 
         <tbody>
             @foreach (var item in Model)
             {
-
                 <tr>
                     <td>@item.i_id</td>
                     <td>@item.i_adi</td>
@@ -32,14 +32,15 @@
                     <td>@item.ozel_istek</td>
                     <td>
                         <form asp-action="Delete" method="post">
-                            <a asp-controller="Ihtiyaclar" asp-action="Guncelle" asp-route-id="@item i_id" class=" btn btn-primary btn sm">Güncelle</a>
+                            <a asp-controller="ihtiyac" asp-action="Guncellen" asp-route-id="@item.i_id" class=" btn btn-primary btn sm">Güncelle</a>
+                            <input type="hidden" name="i_id" value="@item.i_id">
                             <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                         </form>
                     </td>
                 </tr>
+
             }
         </tbody>
     </table>
 </div>
-
 

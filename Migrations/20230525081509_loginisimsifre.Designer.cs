@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_programlama.Models;
 
@@ -11,9 +12,11 @@ using Web_programlama.Models;
 namespace Web_programlama.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230525081509_loginisimsifre")]
+    partial class loginisimsifre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -148,6 +151,31 @@ namespace Web_programlama.Migrations
                     b.ToTable("Haberlers");
                 });
 
+            modelBuilder.Entity("Web_programlama.Models.Ihtiyaclar", b =>
+                {
+                    b.Property<int>("i_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("i_id"));
+
+                    b.Property<string>("i_adi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("i_miktari")
+                        .HasColumnType("int");
+
+                    b.Property<string>("istek_adresi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ozel_istek")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("i_id");
+
+                    b.ToTable("ihtiyaclars");
+                });
+
             modelBuilder.Entity("Web_programlama.Models.Kullanici", b =>
                 {
                     b.Property<int>("k_id")
@@ -229,31 +257,6 @@ namespace Web_programlama.Migrations
                     b.HasKey("y_id");
 
                     b.ToTable("Yetkilis");
-                });
-
-            modelBuilder.Entity("Web_programlama.Models.ihtiyac", b =>
-                {
-                    b.Property<int>("i_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("i_id"));
-
-                    b.Property<string>("i_adi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("i_miktari")
-                        .HasColumnType("int");
-
-                    b.Property<string>("istek_adresi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ozel_istek")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("i_id");
-
-                    b.ToTable("ihtiyaclars");
                 });
 #pragma warning restore 612, 618
         }

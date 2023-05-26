@@ -60,7 +60,7 @@ namespace Web_programlama.Controllers
         {
             if (gizli == null)
             {
-                gizli = context.Kullanicis.Where(p => p.k_id == entity.k_id).FirstOrDefault();
+                context.Kullanicis.FirstOrDefault(p => p.k_id == entity.k_id);
             }
             else
             {
@@ -69,9 +69,11 @@ namespace Web_programlama.Controllers
             if (gizli != null)
             {
                 gizli.k_tc = entity.k_tc;
-                gizli.k_adi = entity.k_adi;
+                gizli.isim = entity.isim;
                 gizli.k_yetki_turu = entity.k_yetki_turu;
-                gizli.k_sifre = entity.k_sifre;
+                gizli.sifre = entity.sifre;
+
+                context.Kullanicis.ExecuteDeleteAsync();
                 context.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
@@ -107,9 +109,9 @@ namespace Web_programlama.Controllers
             return RedirectToAction("Index","Admin");
         }
 
-        public IActionResult OpenIhtiyaclar()
+        public IActionResult Openihtiyac()
         {
-            return RedirectToAction("Index", "Ihtiyaclar");
+            return RedirectToAction("Index", "ihtiyac");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

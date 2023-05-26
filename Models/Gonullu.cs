@@ -13,6 +13,6 @@ namespace Web_programlama.Models
         public string? yasi { get; set; }
         public string? mail { get; set; }
         public int telefon { get; set; }
-        public string? sifre { get; set; }
+        public int sifre { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Web_programlama.Models;
 
 namespace Web_programlama.Controllers
@@ -54,7 +55,7 @@ namespace Web_programlama.Controllers
         {
             if (gizli == null)
             {
-                gizli = context.Admins.Where(p => p.a_id == entity.a_id).FirstOrDefault();
+                context.Admins.FirstOrDefault(p => p.a_id == entity.a_id);
             }
             else
             {
@@ -64,9 +65,11 @@ namespace Web_programlama.Controllers
             {
                 gizli.a_id = entity.a_id;
                 gizli.a_tc = entity.a_tc;
-                gizli.a_sifre = entity.a_sifre;
-                gizli.a_isim = entity.a_isim;
+                gizli.sifre = entity.sifre;
+                gizli.isim = entity.isim;
                 gizli.a_soyisim = entity.a_soyisim;
+
+                context.Admins.ExecuteDeleteAsync();
                 context.SaveChanges();
             }
             return RedirectToAction(nameof(Index));

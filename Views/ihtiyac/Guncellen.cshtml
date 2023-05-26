@@ -1,22 +1,20 @@
-﻿@model Web_programlama.Models.Ihtiyaclar
+﻿@model Web_programlama.Models.ihtiyac
 @{
-    ViewData["Title"] = "Guncelle";
+    ViewData["Title"] = "Guncellen";
 }
-
-<h1>Geçmiş olsun</h1>
-<h2>ihtiyacınız olan ürünleri giriniz</h2>
 
 <div class="m-4">
     <div class="bg-success text-white p-4">
-        İstekleri Güncelle
+        Admin Güncelleme
     </div>
-    <form asp-action="Guncelle" method="post">
+    <form asp-action="Guncellen" method="post">
 
-        <input type="hidden" name="gizli.i_id" value="@Model.i_id" />
-        <input type="hidden" name="gizli.i_adi " value="@Model.i_adi" />
-        <input type="hidden" name="gizli.i_miktari " value="@Model.i_miktari" />
-        <input type="hidden" name="gizli.istek_adresi" value="@Model.istek_adresi" />
-        <input type="hidden" name="gizli.ozel_istek" value="@Model.ozel_istek" />
+        <input type="hidden" name="gizli.ID" value="@Model.i_id" />
+        <input type="hidden" name="gizli.ADI " value="@Model.i_adi" />
+        <input type="hidden" name="gizli.ADET" value="@Model.i_miktari" />
+        <input type="hidden" name="gizli.ADRES " value="@Model.istek_adresi" />
+        <input type="hidden" name="gizli.BAŞKA İSTEK" value="@Model.ozel_istek" />
+
 
         <div class="form-group">
             <label asp-for="i_adi"></label>
@@ -28,21 +26,21 @@
             <label asp-for="i_miktari"></label>
             <br />
             <input asp-for="i_miktari" class="form-control" />
-        </div> <br />
+        </div><br />
 
         <div class="form-group">
             <label asp-for="istek_adresi"></label>
             <br />
             <input asp-for="istek_adresi" class="form-control" />
-        </div><br />
+        </div> <br />
 
         <div class="form-group">
             <label asp-for="ozel_istek"></label>
             <br />
             <input asp-for="ozel_istek" class="form-control" />
         </div><br />
+
         <button type="submit" value="Submit" class="btn btn-primary">Güncelle </button>
     </form>
 </div>
-
 

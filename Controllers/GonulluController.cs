@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Web_programlama.Models;
 
 namespace Web_programlama.Controllers
@@ -30,8 +31,8 @@ namespace Web_programlama.Controllers
         }
         public IActionResult Listg()
         {
-            
-         return View(context.Gonullus.OrderByDescending(p => p.g_id));
+
+            return View(context.Gonullus.OrderByDescending(p => p.g_id));
         }
         public Gonullu GetById(int id)
         {
@@ -48,7 +49,7 @@ namespace Web_programlama.Controllers
         {
             if (gizli == null)
             {
-                gizli = context.Gonullus.Where(p => p.g_id == entity.g_id).FirstOrDefault();
+                context.Gonullus.FirstOrDefault(p => p.g_id == entity.g_id);
             }
             else
             {
@@ -60,11 +61,14 @@ namespace Web_programlama.Controllers
                 gizli.g_tc = entity.g_tc;
                 gizli.isim = entity.isim;
                 gizli.soyisim = entity.soyisim;
-                gizli.meslegi= entity.meslegi;
-                gizli.yasi= entity.yasi;
-                gizli.mail= entity.mail;
-                gizli.sifre= entity.sifre;
+                gizli.meslegi = entity.meslegi;
+                gizli.yasi = entity.yasi;
+                gizli.mail = entity.mail;
+                gizli.sifre = entity.sifre;
+
+                context.Gonullus.ExecuteDeleteAsync();
                 context.SaveChanges();
+
             }
             return RedirectToAction(nameof(Index));
         }

@@ -7,8 +7,8 @@ namespace Web_programlama.Models
         [Key]
         public int a_id { get; set; }
         public int a_tc { get; set; }
-        public int a_sifre { get; set; }
-        public string a_isim { get; set; }
+        public int sifre { get; set; }
+        public string isim { get; set; }
         public string a_soyisim { get; set; }
     }
 }

@@ -27,9 +27,9 @@
             <tr>
                 <td>@item.k_id</td>
                 <td>@item.k_tc</td>
-                <td>@item.k_adi</td>
+                <td>@item.isim</td>
                 <td>@item.k_yetki_turu</td>
-                <td>@item.k_sifre</td>
+                <td>@item.sifre</td>
                 <td>
                     <form asp-action="Delete" method="post">
                         <a asp-controller="Home" asp-action="Guncelle" asp-route-id="@item.k_id" class=" btn btn-primary btn sm">Güncelle</a>
