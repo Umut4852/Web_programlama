@@ -48,7 +48,7 @@ namespace Web_programlama.Controllers
             return View(GetById(id));
         }
         [HttpPost]
-        public IActionResult Guncellen(ihtiyac entity, ihtiyac gizli = null)
+        public IActionResult Guncellen(ihtiyac entity, ihtiyac? gizli = null)
         {
             if (gizli == null)
             {

@@ -1,7 +1,6 @@
 ﻿using Web_programlama.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Web_programlama.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -56,7 +55,7 @@ namespace Web_programlama.Controllers
         }
 
         [HttpPost]
-        public IActionResult Guncelle(Kullanici entity, Kullanici gizli = null)
+        public IActionResult Guncelle(Kullanici entity, Kullanici? gizli = null)
         {
             if (gizli == null)
             {

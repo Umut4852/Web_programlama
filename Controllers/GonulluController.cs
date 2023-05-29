@@ -45,7 +45,7 @@ namespace Web_programlama.Controllers
         }
 
         [HttpPost]
-        public IActionResult Guncelleg(Gonullu entity, Gonullu gizli = null)
+        public IActionResult Guncelleg(Gonullu entity, Gonullu? gizli = null)
         {
             if (gizli == null)
             {

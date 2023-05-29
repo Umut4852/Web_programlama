@@ -51,7 +51,7 @@ namespace Web_programlama.Controllers
         }
 
         [HttpPost]
-        public IActionResult Guncellea(Admin entity, Admin gizli = null)
+        public IActionResult Guncellea(Admin entity, Admin? gizli = null)
         {
             if (gizli == null)
             {
