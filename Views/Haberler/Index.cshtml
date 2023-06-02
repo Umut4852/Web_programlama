@@ -1,0 +1,43 @@
+﻿@model IEnumerable< Web_programlama.Models.Haberler>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="m-4">
+    <div class="bg-success text-white p-4">
+        Haberler...
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>SONHABER</th>
+                <th>DAĞITIM_ALANLARI</th>
+                <th>SAĞLIK_MERKEZLERİ</th>
+                <th>IS_ACTİVE</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.h_id</td>
+                    <td>@item.son_haberler</td>
+                    <td>@item.gida_dagitim_noktalari</td>
+                    <td>@item.saglik_merkezleri</td>
+                    <td>@item.IsActive</td>
+                    <td>
+                        <form asp-action="Delete" method="post">
+                            <a asp-action="Edit" asp-route="@item.h_id" class="btn btn-primary btn-sm">Edit</a>
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

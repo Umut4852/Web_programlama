@@ -30,6 +30,18 @@ namespace Web_programlama.Controllers
             context.SaveChanges();
             return View("Thanks", model);
         }
+        [HttpGet]
+        public IActionResult AddHaberler()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddHaberler(Haberler model)
+        {
+            context.Haberlers.Add(model);
+            context.SaveChanges();
+            return View("Thanks", model);
+        }
         public IActionResult RaporGonullu()
         {
             return RedirectToAction("Listg", "Gonullu");

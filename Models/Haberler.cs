@@ -9,6 +9,7 @@ namespace Web_programlama.Models
         public string son_haberler { get; set; }
         public string gida_dagitim_noktalari { get; set; }
         public string saglik_merkezleri { get; set; }
+        public bool? IsActive { get; set; }
 
     }
 }
