@@ -1,0 +1,12 @@
+﻿@model Web_programlama.Models.Urun
+@{
+    ViewData["Title"] = "RouteData";
+}
+
+<h1>RouteData</h1>
+
+<form asp-action="RouteData" asp-controller="Urun" method="post">
+    <input asp-for="isim" type="text" /> <br />
+    <input asp-for="adet" type="number" /> <br />
+    <button>Gönder</button>
+</form>

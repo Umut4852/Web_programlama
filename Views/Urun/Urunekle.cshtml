@@ -1,0 +1,13 @@
+﻿@model Web_programlama.Models.Urun
+@{
+    ViewData["Title"] = "Urunekle";
+}
+
+<form asp-action="Urunekle" method="post">
+    <input type="text" asp-for="isim" placeholder="isim" />
+    <br />
+    <input type="number" asp-for="adet" placeholder="adet" />
+    <br />
+    <button type="submit" class="btn btn-primary">Ekle</button>
+</form>
+

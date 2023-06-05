@@ -1,0 +1,13 @@
+﻿@model Web_programlama.Models.Urun
+
+@{
+    ViewData["Title"] = "Qstring";
+}
+               @* QueryString*@
+
+<form asp-action="Qstring" asp-controller="Urun" method="post">
+    <input asp-for="isim" type="text" /> <br />
+    <input asp-for="adet" type="number" /> <br />
+    <button>qstring</button>
+</form>
+
