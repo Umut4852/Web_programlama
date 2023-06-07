@@ -4,10 +4,43 @@
 
 <h1>Admin Sayfası</h1>
 
-<a asp-action="AdminOlustur" class="btn btn-primary">Admin oluştur</a>
-<a asp-action="Lista" class="btn btn-success">Adminleri görüntüle</a>
-<a asp-action="AddHaberler" class="btn btn-primary">Haber Ekle</a>
 
-<form asp-controller="Admin" asp-action="RaporGonullu" method="post">
-    <input type="submit" class="btn btn-primary" value="Başvurular" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <img src="https://www.shareicon.net/data/2015/06/12/53030_add_256x256.png" alt="user" class="user-icon" />
+            <div>
+                <a asp-action="AdminOlustur" class="btn btn-primary">Admin oluştur</a>
+            </div>
+        </div>
+        <div class="col-sm">
+            <img src="https://icon-library.com/images/profiles-icon/profiles-icon-11.jpg" alt="admin" class="user-icon" />
+            <div>
+                <a asp-action="Lista" class="btn btn-success">Adminleri görüntüle</a>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+
+        <div class="col-sm">
+            <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/news-504-910114.png" alt="haberler" class="user-icon" />
+            <div>
+                <a asp-action="AddHaberler" class="btn btn-primary">Haber Ekle</a>
+            </div>
+        </div>
+        <div class="col-sm">
+            <img src="https://www.akilokullari.com/themes/default/assets/resimler/employee.png" alt="urunler" class="user-icon" />
+            <form asp-controller="Admin" asp-action="RaporGonullu" method="post">
+                <input type="submit" class="btn btn-primary" value="Başvurular" />
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

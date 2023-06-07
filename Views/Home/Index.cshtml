@@ -6,28 +6,45 @@
     <h1>Geçmiş Olsun</h1>
 
 </div>
-<a asp-action="AddKullanici" class="btn btn-primary">Kullanıcı Oluştur</a>
-<a asp-action="List" class="btn btn-primary">Kullanıcıları Listele</a>
-<br/>
-<form asp-controller="Home" asp-action="OpenGonullu" method="post">
-    <input type="submit" value="Gönüllü" />
-</form>
 
-<form asp-controller="Home" asp-action="OpenAdmin" method="post">
-    <input type="submit" value="Admin" />
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <img src="https://static-00.iconduck.com/assets.00/user-login-icon-1948x2048-nocsasoq.png" alt="user" class="user-icon" />
+            <div>
+                <a asp-action="AddKullanici" class="btn btn-primary">Kullanıcı Oluştur</a>
+                <a asp-action="List" class="btn btn-primary">Kullanıcıları Listele</a>
+            </div>
+        </div>
+        <div class="col-sm">
+            <img src="https://cdn-icons-png.flaticon.com/512/560/560199.png" alt="admin" class="user-icon" />
+            <div>
+                <form asp-controller="Home" asp-action="OpenAdmin" method="post">
+                    <input type="submit" value="Admin" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
 
-<form asp-controller="Home" asp-action="Openihtiyac" method="post">
-    <input type="submit" value="Ihtiyaclar" />
-</form>
-<form asp-controller="Haberler" asp-action="Index" method="post">
-    <input type="submit" value="Haberler" />
-</form>
+        <div class="col-sm">
+            <img src="https://www.yaylanakliyat.com/wp-content/uploads/2019/05/haberler.png" alt="haberler" class="user-icon" />
+            <div>
+                <form asp-controller="Haberler" asp-action="Index" method="post">
+                    <input type="submit" value="Haberler" />
+                </form>
+            </div>
+        </div>
+        <div class="col-sm">
+            <img src="https://imzalikitabim.com/wp-content/uploads/2018/02/S%C4%B0TE-%C4%B0CON-03-min.png" alt="urunler" class="user-icon" />
+            <form asp-controller="Urun" asp-action="Index" method="post">
+                <input type="submit" value="Urun" />
+            </form>
+        </div>
+    </div>
+</div>
 
-<form asp-controller="Urun" asp-action="Index" method="post">
-    <input type="submit" value="Urun" />
-</form>
 
-<form asp-controller="Login" asp-action="Index" method="post">
-    <input type="submit" value="Login" />
-</form>
+
+

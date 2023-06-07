@@ -1,17 +1,29 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
 }
+<div class="mycontainer">
+    <div class="box">
+        <img src="https://iaftm.tmgrup.com.tr/7d22eb/829/469/11/0/1885/1060?u=https://iftm.tmgrup.com.tr/2022/11/23/depremde-olu-yarali-var-mi-23-kasim-duzce-depreminde-olen-yaralanan-oldu-mu-deprem-kac-saniye-surdu-son-dakika-1669175654319.jpeg" alt="Resim" class="my-image">
+        <div class="overlay-text">
+            <h1>Geçmiş Olsun</h1>
+            <div class="button-container">
+                <form asp-controller="Home" asp-action="OpenGonullu" method="post">
+                    <input type="submit" value="Gönüllü" />
+                </form>
 
-<h1>Login</h1>
+                <form asp-controller="Home" asp-action="Openihtiyac" method="post">
+                    <input type="submit" value="Ihtiyaclar" />
+                </form>
+            </div>
+            @*Sesion ile kullanıcı adı saklandı*@
 
-                         @*Sesion ile kullanıcı adı saklandı*@
-
-<form method="post" asp-action="Login">
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" required>
+            <form method="post" asp-action="Login">
+                <div class="form-group">
+                    <label for="username" class="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
-
+</div>

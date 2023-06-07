@@ -19,6 +19,10 @@ namespace Web_programlama.Controllers
         }
 
         [HttpGet]
+        public IActionResult info()
+        {
+            return View();
+        }
         public IActionResult AdminOlustur()
         {
             return View();

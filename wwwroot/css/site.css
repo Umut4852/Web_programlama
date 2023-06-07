@@ -1,25 +1,145 @@
 html {
-  font-size: 14px;
+    font-size: 10px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
-nav {
-    background-color: red;
+
+
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: aqua;
+}
+
+    nav ul li {
+        float: left;
+    }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            nav ul li a:hover {
+                background-color: red;
+            }
+
+.button-container {
+    display: flex;
+}
+
+.button {
+    margin-right: 10px;
+}
+
+.button-container {
+    width: 550px;
+    padding: 10px 10px;
+    font-weight: bold;
+}
+
+
+
+.mycontainer {
+    display: flex;
+    position: relative;
+}
+
+.box {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .overlay-text h1, .overlay-text p {
+        opacity: 1;
+    }
+
+.my-image {
+    width: 1200px;
+    height: 580px;
+}
+
+.container {
+    position: relative;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+    .content h1 {
+        color: skyblue;
+        font-size: 35px;
+        margin-bottom: 10px;
+        font-weight:bold;
+    }
+
+    .content a {
+        color: white;
+        margin-right: 10px;
+    }
+.instagram-icon {
+    width: 50px;
+    height: 50px;
+}
+.github-icon {
+    width: 50px;
+    height: 50px;
+}
+.linkedin-icon {
+    width: 50px;
+    height: 50px;
+}
+.twitter-icon {
+    width: 50px;
+    height: 50px;
+}
+.logout-icon{
+    width:20px;
+    height:20px;
+}
+.username {
+    font-weight: bold;
+    font-size: 24px;
+}
+.user-icon {
+    width: 150px;
+    height: 150px;
 }
