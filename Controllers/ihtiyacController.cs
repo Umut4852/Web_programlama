@@ -81,9 +81,9 @@ namespace Web_programlama.Controllers
 
 
         [HttpPost]
-        public IActionResult Delete(int g_id)
+        public IActionResult Delete(int i_id)
         {
-            Deleteihtiyac(g_id);
+            Deleteihtiyac(i_id);
             return RedirectToAction(nameof(Index));
         }
     }
