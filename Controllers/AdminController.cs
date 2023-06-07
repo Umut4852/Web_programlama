@@ -40,12 +40,7 @@ namespace Web_programlama.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddHaberler(Haberler model)
-        {
-            context.Haberlers.Add(model);
-            context.SaveChanges();
-            return View("Thanks", model);
-        }
+        
         public IActionResult RaporGonullu()
         {
             return RedirectToAction("Listg", "Gonullu");

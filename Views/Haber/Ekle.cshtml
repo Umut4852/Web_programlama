@@ -1,0 +1,28 @@
+﻿@model Haber
+@{
+    ViewData["Title"] = "Ekle";
+}
+<h2>Haber Ekle</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="Baslik">Başlık:</label>
+        @Html.TextBoxFor(m => m.Baslik)
+    </div>
+    <div>
+        <label for="Icerik">İçerik:</label>
+        @Html.TextAreaFor(m => m.Icerik)
+    </div>
+    <div>
+        <label for="Tarih">Tarih:</label>
+        @Html.TextBoxFor(m => m.Tarih, "{0:dd.MM.yyyy}", new { @class = "datepicker" })
+    </div>
+    <button type="submit">Ekle</button>
+}
+
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+</script>

@@ -1,0 +1,14 @@
+﻿@model Haber
+@{
+    ViewData["Title"] = "Detay";
+}
+
+<h2>@Model.Baslik</h2>
+
+<p>@Model.Icerik</p>
+
+<p>Tarih: @Model.Tarih</p>
+
+@Html.ActionLink("Geri Dön", "Index")
+
+

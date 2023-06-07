@@ -11,7 +11,7 @@ namespace Web_programlama.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Depremzede> Depremzedes { get; set; }
         public DbSet<Gonullu> Gonullus { get; set; }
-        public DbSet<Haberler> Haberlers { get; set; }
+        public DbSet<Haber> Habers { get; set; }
         public DbSet<ihtiyac> ihtiyaclars { get; set; }
         public DbSet<Kullanici> Kullanicis { get; set; }
         public DbSet<ToplanmaAlani> Toplanma_Alanis { get; set; }
