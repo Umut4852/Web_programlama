@@ -2,28 +2,41 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h2>Haberler</h2>
+<h1>Tüm Haberler</h1>
 
-<table>
-    <tr>
-        <th>Baslik</th>
-        <th>Tarih</th>
-        <th></th>
-    </tr>
-    @foreach (var haber in Model)
-    {
+@if (Model.Count == 0)
+{
+    <p>Henüz haber bulunmamaktadır.</p>
+}
+else
+{
+    <table>
         <tr>
-            <td>@haber.Baslik</td>
-            <td>@haber.Tarih</td>
-            <td>
-                @Html.ActionLink("Detay", "Detay", new { id = haber.Id })
-                @Html.ActionLink("Güncelle", "Guncelle", new { id = haber.Id })
-                @Html.ActionLink("Sil", "Sil", new { id = haber.Id })
-            </td>
+            <th>Id</th>
+            <th>Başlık</th>
+            <th>İçerik</th>
+            <th>Tarih</th>
+            <th></th>
         </tr>
-    }
-</table>
+        @foreach (var haber in Model)
+        {
+            <tr>
+                <td>@haber.Id</td>
+                <td>@haber.Baslik</td>
+                <td>@haber.Icerik</td>
+                <td>@haber.Tarih.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <a href="/Haber/Detay/@haber.Id">Detay</a> |
+                    <a href="/Haber/Guncelle/@haber.Id">Güncelle</a> |
+                    <a href="/Haber/Sil/@haber.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
 
-@Html.ActionLink("Haber Ekle", "Ekle")
+<br />
+
+<a href="/Haber/Ekle">Yeni Haber Ekle</a>
 
 

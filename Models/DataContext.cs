@@ -12,9 +12,11 @@ namespace Web_programlama.Models
         public DbSet<Depremzede> Depremzedes { get; set; }
         public DbSet<Gonullu> Gonullus { get; set; }
         public DbSet<Haber> Habers { get; set; }
-        public DbSet<ihtiyac> ihtiyaclars { get; set; }
+        public DbSet<İhtiyac> ihtiyaclars { get; set; }
         public DbSet<Kullanici> Kullanicis { get; set; }
         public DbSet<ToplanmaAlani> Toplanma_Alanis { get; set; }
+        public DbSet<User>users { get; set; }
+        public DbSet<Urun> uruns { get; set; }
         public DbSet<Yetkili> Yetkilis { get; set; }
 
     }

@@ -1,31 +1,23 @@
-﻿@model Haber
+﻿@model Web_programlama.Models.Haber;
 @{
     ViewData["Title"] = "Guncelle";
 }
+
 <h2>Haber Güncelle</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(m => m.Id)
+<form method="post" action="/Haber/Guncelle">
+    <input type="hidden" name="Id" value="@Model.Id" />
 
-    <div>
-        <label for="Baslik">Başlık:</label>
-        @Html.TextBoxFor(m => m.Baslik)
-    </div>
-    <div>
-        <label for="Icerik">İçerik:</label>
-        @Html.TextAreaFor(m => m.Icerik)
-    </div>
-    <div>
-        <label for="Tarih">Tarih:</label>
-        @Html.TextBoxFor(m => m.Tarih, "{0:dd.MM.yyyy}", new { @class = "datepicker" })
-    </div>
-    <button type="submit">Güncelle</button>
-}
+    <label>Başlık:</label><br />
+    <input type="text" name="Baslik" value="@Model.Baslik" /><br />
 
-<script>
-    $(document).ready(function () {
-        $('.datepicker').datepicker();
-    });
-</script>
+    <label>İçerik:</label><br />
+    <textarea name="Icerik">@Model.Icerik</textarea><br />
+
+    <label>Tarih:</label><br />
+    <input type="text" name="Tarih" value="@Model.Tarih.ToString("dd.MM.yyyy")" /><br />
+
+    <input type="submit" value="Güncelle" />
+</form>
+
 

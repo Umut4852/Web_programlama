@@ -6,6 +6,11 @@ namespace Web_programlama.Controllers
 {
     public class UrunController : Controller
     {
+        private DataContext context;
+        public UrunController(DataContext _context)
+        {
+            context = _context;
+        }
         public IActionResult Index()
         {
             return View();

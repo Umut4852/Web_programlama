@@ -12,8 +12,8 @@ using Web_programlama.Models;
 namespace Web_programlama.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230522075340_umut")]
-    partial class umut
+    [Migration("20230611120041_okey")]
+    partial class okey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,18 +33,18 @@ namespace Web_programlama.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("a_id"));
 
-                    b.Property<string>("a_isim")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("a_sifre")
-                        .HasColumnType("int");
-
                     b.Property<string>("a_soyisim")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("a_tc")
+                        .HasColumnType("int");
+
+                    b.Property<string>("isim")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("sifre")
                         .HasColumnType("int");
 
                     b.HasKey("a_id");
@@ -61,25 +61,24 @@ namespace Web_programlama.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("adres")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("aile_no")
                         .HasColumnType("int");
 
                     b.Property<string>("cinsiyet")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("isim")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("istek_no")
                         .HasColumnType("int");
 
+                    b.Property<int>("sifre")
+                        .HasColumnType("int");
+
                     b.Property<string>("soyisim")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("tc_no")
@@ -98,34 +97,28 @@ namespace Web_programlama.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("g_id"));
 
-                    b.Property<string>("g_isim")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("g_meslegi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("g_soyisim")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("g_tc")
                         .HasColumnType("int");
+
+                    b.Property<string>("isim")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("meslegi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("sifre")
+                        .HasColumnType("int");
+
+                    b.Property<string>("soyisim")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("telefon")
                         .HasColumnType("int");
 
-                    b.Property<string>("y_mail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("y_sifre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("yasi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("g_id");
@@ -133,60 +126,26 @@ namespace Web_programlama.Migrations
                     b.ToTable("Gonullus");
                 });
 
-            modelBuilder.Entity("Web_programlama.Models.Haberler", b =>
+            modelBuilder.Entity("Web_programlama.Models.Haber", b =>
                 {
-                    b.Property<int>("h_id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("h_id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("gida_dagitim_noktalari")
-                        .IsRequired()
+                    b.Property<string>("Baslik")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("saglik_merkezleri")
-                        .IsRequired()
+                    b.Property<string>("Icerik")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("son_haberler")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime2");
 
-                    b.HasKey("h_id");
+                    b.HasKey("Id");
 
-                    b.ToTable("Haberlers");
-                });
-
-            modelBuilder.Entity("Web_programlama.Models.Ihtiyaclar", b =>
-                {
-                    b.Property<int>("i_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("i_id"));
-
-                    b.Property<int>("bagis_miktari")
-                        .HasColumnType("int");
-
-                    b.Property<string>("i_adi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("i_miktari")
-                        .HasColumnType("int");
-
-                    b.Property<string>("istek_adresi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ozel_istek")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("i_id");
-
-                    b.ToTable("ihtiyaclars");
+                    b.ToTable("Habers");
                 });
 
             modelBuilder.Entity("Web_programlama.Models.Kullanici", b =>
@@ -197,14 +156,17 @@ namespace Web_programlama.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("k_id"));
 
-                    b.Property<int?>("k_sifre")
-                        .HasColumnType("int");
+                    b.Property<string>("isim")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("k_tc")
                         .HasColumnType("int");
 
                     b.Property<string>("k_yetki_turu")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("sifre")
+                        .HasColumnType("int");
 
                     b.HasKey("k_id");
 
@@ -238,6 +200,40 @@ namespace Web_programlama.Migrations
                     b.ToTable("Toplanma_Alanis");
                 });
 
+            modelBuilder.Entity("Web_programlama.Models.Urun", b =>
+                {
+                    b.Property<string>("isim")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("adet")
+                        .HasColumnType("int");
+
+                    b.HasKey("isim");
+
+                    b.ToTable("uruns");
+                });
+
+            modelBuilder.Entity("Web_programlama.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users");
+                });
+
             modelBuilder.Entity("Web_programlama.Models.Yetkili", b =>
                 {
                     b.Property<int>("y_id")
@@ -246,24 +242,19 @@ namespace Web_programlama.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("y_id"));
 
-                    b.Property<string>("y_d_tarihi")
-                        .IsRequired()
+                    b.Property<string>("isim")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("y_isim")
-                        .IsRequired()
+                    b.Property<int>("sifre")
+                        .HasColumnType("int");
+
+                    b.Property<string>("y_d_tarihi")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("y_mail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("y_sifre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("y_soyadi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("y_tc")
@@ -272,6 +263,31 @@ namespace Web_programlama.Migrations
                     b.HasKey("y_id");
 
                     b.ToTable("Yetkilis");
+                });
+
+            modelBuilder.Entity("Web_programlama.Models.İhtiyac", b =>
+                {
+                    b.Property<int>("i_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("i_id"));
+
+                    b.Property<string>("i_adi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("i_miktari")
+                        .HasColumnType("int");
+
+                    b.Property<string>("istek_adresi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ozel_istek")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("i_id");
+
+                    b.ToTable("ihtiyaclars");
                 });
 #pragma warning restore 612, 618
         }

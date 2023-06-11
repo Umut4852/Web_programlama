@@ -25,7 +25,7 @@ namespace Web_programlama.Controllers
         }
 
         [HttpPost]
-        public IActionResult Addihtiyac(ihtiyac model)
+        public IActionResult Addihtiyac(İhtiyac model)
         {
             context.ihtiyaclars.Add(model);
             context.SaveChanges();
@@ -37,7 +37,7 @@ namespace Web_programlama.Controllers
             return View(context.ihtiyaclars.OrderByDescending(p => p.i_id));
 
         }
-        public ihtiyac GetById(int id)
+        public İhtiyac GetById(int id)
         {
 
             return context.ihtiyaclars.Where(p => p.i_id == id).FirstOrDefault();
@@ -48,7 +48,7 @@ namespace Web_programlama.Controllers
             return View(GetById(id));
         }
         [HttpPost]
-        public IActionResult Guncellen(ihtiyac entity, ihtiyac? gizli = null)
+        public IActionResult Guncellen(İhtiyac entity, İhtiyac? gizli = null)
         {
             if (gizli == null)
             {

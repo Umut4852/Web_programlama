@@ -132,11 +132,9 @@ namespace Web_programlama.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Baslik")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Icerik")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Tarih")
@@ -199,6 +197,40 @@ namespace Web_programlama.Migrations
                     b.ToTable("Toplanma_Alanis");
                 });
 
+            modelBuilder.Entity("Web_programlama.Models.Urun", b =>
+                {
+                    b.Property<string>("isim")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("adet")
+                        .HasColumnType("int");
+
+                    b.HasKey("isim");
+
+                    b.ToTable("uruns");
+                });
+
+            modelBuilder.Entity("Web_programlama.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users");
+                });
+
             modelBuilder.Entity("Web_programlama.Models.Yetkili", b =>
                 {
                     b.Property<int>("y_id")
@@ -230,7 +262,7 @@ namespace Web_programlama.Migrations
                     b.ToTable("Yetkilis");
                 });
 
-            modelBuilder.Entity("Web_programlama.Models.ihtiyac", b =>
+            modelBuilder.Entity("Web_programlama.Models.İhtiyac", b =>
                 {
                     b.Property<int>("i_id")
                         .ValueGeneratedOnAdd()

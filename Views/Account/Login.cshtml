@@ -1,0 +1,28 @@
+﻿@model Web_programlama.Models.User
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Giriş Ekranı</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <div>
+        <label for="Username">Kullanıcı Adı:</label>
+        @Html.TextBoxFor(m => m.Username)
+        @Html.ValidationMessageFor(m => m.Username)
+    </div>
+
+    <div>
+        <label for="Password">Parola:</label>
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+
+    <div>
+        <input type="submit" value="Giriş Yap" />
+    </div>
+}
+

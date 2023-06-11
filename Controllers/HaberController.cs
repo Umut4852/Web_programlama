@@ -5,54 +5,65 @@ namespace Web_programlama.Controllers
 {
     public class HaberController : Controller
     {
-        private HaberRepository haberRepository;
+        private IHaberRepository haberRepository;
 
-        public HaberController()
+        private DataContext context;
+        public HaberController(DataContext _context)
         {
-            haberRepository = new HaberRepository();
+            context = _context;
         }
-
-        public ActionResult Index()
+        public HaberController(IHaberRepository repository)
         {
-            List<Haber> haberler = haberRepository.HaberleriGetir();
-            return View(haberler);
+            haberRepository = repository;
         }
-
-        public ActionResult Detay(int id)
-        {
-            Haber haber = haberRepository.HaberGetir(id);
-            return View(haber);
-        }
-
-        public ActionResult Ekle()
+        public IActionResult Index()
         {
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Ekle(Haber haber)
+        public List<Haber> TumHaberleriGetir()
         {
+            return haberRepository.TumHaberleriGetir();
+        }
+
+        public Haber HaberGetir(int haberId)
+        {
+            return haberRepository.HaberGetir(haberId);
+        }
+
+        public void HaberEkle(string baslik, string icerik, DateTime tarih)
+        {
+            var haber = new Haber
+            {
+                Id = GetNextId(),
+                Baslik = baslik,
+                Icerik = icerik,
+                Tarih = tarih
+            };
+
             haberRepository.HaberEkle(haber);
-            return RedirectToAction("Index");
         }
 
-        public ActionResult Guncelle(int id)
+        public void HaberGuncelle(int haberId, string baslik, string icerik, DateTime tarih)
         {
-            Haber haber = haberRepository.HaberGetir(id);
-            return View(haber);
-        }
+            var haber = new Haber
+            {
+                Id = haberId,
+                Baslik = baslik,
+                Icerik = icerik,
+                Tarih = tarih
+            };
 
-        [HttpPost]
-        public ActionResult Guncelle(Haber haber)
-        {
             haberRepository.HaberGuncelle(haber);
-            return RedirectToAction("Index");
         }
 
-        public ActionResult Sil(int id)
+        public void HaberSil(int haberId)
         {
-            haberRepository.HaberSil(id);
-            return RedirectToAction("Index");
+            haberRepository.HaberSil(haberId);
+        }
+
+        private int GetNextId()
+        {
+            return haberRepository.TumHaberleriGetir().Max(h => h.Id) + 1;
         }
     }
 }

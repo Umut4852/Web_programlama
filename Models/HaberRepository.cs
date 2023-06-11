@@ -1,32 +1,32 @@
 ﻿namespace Web_programlama.Models
 {
-    public class HaberRepository
+    public class HaberRepository : IHaberRepository
     {
-        private List<Haber> haberListesi;
+        private List<Haber> haberler;
 
         public HaberRepository()
         {
-            haberListesi = new List<Haber>();
+            haberler = new List<Haber>();
         }
 
-        public List<Haber> HaberleriGetir()
+        public List<Haber> TumHaberleriGetir()
         {
-            return haberListesi;
+            return haberler;
         }
 
-        public Haber HaberGetir(int id)
+        public Haber HaberGetir(int haberId)
         {
-            return haberListesi.FirstOrDefault(h => h.Id == id);
+            return haberler.FirstOrDefault(h => h.Id == haberId);
         }
 
         public void HaberEkle(Haber haber)
         {
-            haberListesi.Add(haber);
+            haberler.Add(haber);
         }
 
         public void HaberGuncelle(Haber haber)
         {
-            Haber eskiHaber = haberListesi.FirstOrDefault(h => h.Id == haber.Id);
+            var eskiHaber = haberler.FirstOrDefault(h => h.Id == haber.Id);
             if (eskiHaber != null)
             {
                 eskiHaber.Baslik = haber.Baslik;
@@ -35,12 +35,12 @@
             }
         }
 
-        public void HaberSil(int id)
+        public void HaberSil(int haberId)
         {
-            Haber haber = haberListesi.FirstOrDefault(h => h.Id == id);
+            var haber = haberler.FirstOrDefault(h => h.Id == haberId);
             if (haber != null)
             {
-                haberListesi.Remove(haber);
+                haberler.Remove(haber);
             }
         }
     }
